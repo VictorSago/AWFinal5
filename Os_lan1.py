@@ -27,12 +27,12 @@ df_tjugoett = pd.DataFrame(data21)
 df_tjugotva = pd.DataFrame(data22)
 print(df_sjutton.head())'''
 
-q_os_22 = df_tjugotva[['ResponseId', 'YearsCode', 'YearsCodePro', 'DevType', 'LanguageHaveWorkedWith', 'OpSysProfessional use']]#, 'OpSysPersonal use'
-q_os_21 = df_tjugoett[['Respondent', 'YearsCode', 'YearsCodePro', 'DevType', 'LanguageHaveWorkedWith', 'OpSys']]
-q_os_20 = df_tjugo[['Respondent', 'YearsCode', 'YearsCodePro', 'DevType', 'LanguageWorkedWith', 'OpSys']]
-q_os_19 = df_nitton[['Respondent', 'YearsCode', 'YearsCodePro', 'DevType', 'LanguageWorkedWith', 'OpSys']]
-q_os_18 = df_arton[['Respondent', 'YearsCoding', 'YearsCodingProf', 'DevType', 'LanguageWorkedWith', 'OperatingSystem']]
-q_os_17 = df_sjutton[['Respondent', 'YearsCodedJob', 'YearsCodedJobPast', 'DeveloperType', 'HaveWorkedLanguage']]
+q_os_22 = df_tjugotva[['ResponseId', 'YearsCode', 'YearsCodePro', 'DevType', 'LanguageHaveWorkedWith', 'OpSysProfessional use']].dropna()#, 'OpSysPersonal use'
+q_os_21 = df_tjugoett[['Respondent', 'YearsCode', 'YearsCodePro', 'DevType', 'LanguageHaveWorkedWith', 'OpSys']].dropna()
+q_os_20 = df_tjugo[['Respondent', 'YearsCode', 'YearsCodePro', 'DevType', 'LanguageWorkedWith', 'OpSys']].dropna()
+q_os_19 = df_nitton[['Respondent', 'YearsCode', 'YearsCodePro', 'DevType', 'LanguageWorkedWith', 'OpSys']].dropna()
+q_os_18 = df_arton[['Respondent', 'YearsCoding', 'YearsCodingProf', 'DevType', 'LanguageWorkedWith', 'OperatingSystem']].dropna()
+q_os_17 = df_sjutton[['Respondent', 'YearsCodedJob', 'YearsCodedJobPast', 'DeveloperType', 'HaveWorkedLanguage']].dropna()
 #Sjutton  har dessa: DeveloperType,WebDeveloperType,MobileDeveloperType,NonDeveloperType. OS Saknas för 17. Koderfarenhet olika. 
 
 
