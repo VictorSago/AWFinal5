@@ -1,0 +1,1 @@
+Raw data files are placed in this folder. Each year is expected to be in its own subfolder named after the year.
