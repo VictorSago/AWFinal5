@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 from collections import Counter
 
 
@@ -26,19 +25,24 @@ for row in df2022.itertuples():
         langs_by_country[row.Country]['lang_wanted'].update(langs_wanted)
 
 # Sort the dict by country name
-#sorted_langs_by_country = {k: langs_by_country[k] for k in sorted(langs_by_country.keys())}
+#sorted_by_country = {k: langs_by_country[k] for k in sorted(langs_by_country.keys())}
 
 # Reformat the previously created dict to a form suitable 
 # to be converted into a dataframe
 all_langs_used = []
 
 for country in langs_by_country:
-    total = langs_by_country[country]['total']
-    langs_used = {'name': country, 'total': total}
-    for lang in langs_by_country[country]['lang_used']:
-        langs_used[f'{lang}_used%'] = round(langs_by_country[country]['lang_used'][lang] * 100 / total, 2)
-    for lang in langs_by_country[country]['lang_wanted']:
-        langs_used[f'{lang}_wanted%'] = round(langs_by_country[country]['lang_wanted'][lang] * 100 / total, 2)
+    tot = langs_by_country[country]['total']
+    langs_used = {'name': country, 'total': tot}
+    
+    all_used = langs_by_country[country]['lang_used']
+    for lang in all_used:
+        langs_used[f'{lang}_use%'] = round(all_used[lang] * 100 / tot, 2)
+    
+    all_wanted = langs_by_country[country]['lang_wanted']
+    for lang in all_wanted:
+        langs_used[f'{lang}_want%'] = round(all_wanted[lang] * 100 / tot, 2)
+    
     all_langs_used.append(langs_used)
 
 # Convert the resulting dict into a dataframe
