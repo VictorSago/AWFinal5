@@ -24,7 +24,6 @@ langs_by_dev = []
 row_names = []
 
 for dev, info in dev_langs.items():
-    print(dev)
     tot = info['total']
     langs_used = {'DevType': dev, 'Total': tot}
     row_names.append(dev)
