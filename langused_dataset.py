@@ -37,13 +37,15 @@ for country in langs_by_country:
     
     all_used = langs_by_country[country]['lang_used']
     for lang in all_used:
-        langs_used[f'{lang}_use%'] = round(all_used[lang] * 100 / tot, 2)
+        langs_used[f'{lang}_use'] = int(all_used[lang])
     
     all_wanted = langs_by_country[country]['lang_wanted']
     for lang in all_wanted:
-        langs_used[f'{lang}_want%'] = round(all_wanted[lang] * 100 / tot, 2)
+        langs_used[f'{lang}_want'] = int(all_wanted[lang])
     
     all_langs_used.append(langs_used)
+
+#print(all_langs_used)
 
 # Convert the resulting dict into a dataframe
 df_new = pd.DataFrame(all_langs_used)
@@ -51,7 +53,7 @@ df_new = pd.DataFrame(all_langs_used)
 # Replace all N/A with 0s
 df_new.fillna(0, inplace=True)
 
-print(df_new)
+#print(df_new)
 
 # Save the dataframe to a csv
-df_new.to_csv('cleaned/langs_used_by_country.csv', encoding='utf-8')
+df_new.to_csv('data/langs_used_by_country.csv', encoding='utf-8')
