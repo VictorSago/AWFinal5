@@ -9,6 +9,7 @@ data3 = pd.read_csv(CURR_DIR_PATH + "/rawdata/2020/"'survey_results_public.csv')
 data4 = pd.read_csv(CURR_DIR_PATH + "/rawdata/2019/"'survey_results_public.csv')
 data5 = pd.read_csv(CURR_DIR_PATH + "/rawdata/2018/"'survey_results_public.csv')
 data6 = pd.read_csv(CURR_DIR_PATH + "/rawdata/2017/"'survey_results_public.csv')
+
 df  = pd.DataFrame(data)
 df2 = pd.DataFrame(data2)
 df3 = pd.DataFrame(data3)
