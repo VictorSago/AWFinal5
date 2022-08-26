@@ -54,4 +54,4 @@ df_new.fillna(0, inplace=True)
 print(df_new)
 
 # Save the dataframe to a csv
-df_new.to_csv('cleaned/langs_used_by_country.csv', encoding='utf-8')
+df_new.to_csv('data/langs_used_by_country.csv', encoding='utf-8')

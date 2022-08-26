@@ -148,9 +148,6 @@ $RECYCLE.BIN/
 #####################################
 # More local files
 
-# Ignore data files
-data/*
-
 # Config should be local
 config.ini
 
