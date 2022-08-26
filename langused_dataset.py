@@ -32,6 +32,9 @@ for row in df2022.itertuples():
 all_langs_used = []
 
 for country in langs_by_country:
+    '''Each country becomes a row and each column represents a language 
+    used or wanted, with each cell showing how many from a country 
+    answered that they used or want to use this particular language'''
     tot = langs_by_country[country]['total']
     langs_used = {'name': country, 'total': tot}
     
@@ -45,13 +48,14 @@ for country in langs_by_country:
     
     all_langs_used.append(langs_used)
 
-#print(all_langs_used)
-
 # Convert the resulting dict into a dataframe
 df_new = pd.DataFrame(all_langs_used)
 
 # Replace all N/A with 0s
 df_new.fillna(0, inplace=True)
+
+# Convert columns from float to int
+df_new[df_new.columns[2:]] = df_new[df_new.columns[2:]].astype('int')
 
 #print(df_new)
 
