@@ -2,7 +2,8 @@ import pandas as pd
 from collections import Counter
 
 
-df = pd.read_csv("rawdata/2022/survey_results_public.csv", dtype=str)
+YEAR = 2022
+df = pd.read_csv(f"rawdata/{YEAR}/survey_results_public.csv", dtype=str)
 
 dev_langs = {}
 
@@ -42,6 +43,6 @@ df_new.fillna(0, inplace=True)
 df_new.set_index('DevType', inplace=True)
 
 # Save the dataframe to a csv
-df_new.to_csv('data/langs_by_devtype.csv', encoding='utf-8')
+df_new.to_csv(f"data/{YEAR}_langs_by_devtype.csv", encoding="utf-8")
 
 #print(df_new)

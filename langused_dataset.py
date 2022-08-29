@@ -2,7 +2,8 @@ import pandas as pd
 from collections import Counter
 
 
-df2022 = pd.read_csv("rawdata/2022/survey_results_public.csv", dtype=str)
+YEAR = 2022
+df2022 = pd.read_csv(f"rawdata/{YEAR}/survey_results_public.csv", dtype=str)
 
 # Create a dictionary the counter of all the 
 # used and wanted languages for each country
@@ -60,4 +61,4 @@ df_new[df_new.columns[2:]] = df_new[df_new.columns[2:]].astype('int')
 #print(df_new)
 
 # Save the dataframe to a csv
-df_new.to_csv('data/langs_used_by_country.csv', encoding='utf-8')
+df_new.to_csv(f"data/{YEAR}_langs_used_by_country.csv", encoding="utf-8")
