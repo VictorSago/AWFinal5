@@ -19,16 +19,18 @@ for year in years:
     gender_langs = {}
 
     for row in df.itertuples():
-        gender = str(row.Gender)
-        if gender in ["Man", "Woman"]:
-            gender_langs.setdefault(gender, {
+        gen = str(row.Gender)
+        if gen in ["Man", "Woman"]:
+            gender = gen
+        else:
+            gender = "Other"
+        gender_langs.setdefault(gender, {
                     'total': 0,
                     'language_counter': Counter()
                 })
-
-            languages = str(row.LanguageHaveWorkedWith).split(";")
-            gender_langs[gender]['language_counter'].update(languages)
-            gender_langs[gender]['total'] += 1
+        languages = str(row.LanguageHaveWorkedWith).split(";")
+        gender_langs[gender]['language_counter'].update(languages)
+        gender_langs[gender]['total'] += 1
 
     langs_by_gender = []
     row_names = []
