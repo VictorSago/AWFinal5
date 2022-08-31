@@ -5,7 +5,7 @@ from plotly import graph_objects as go
 
 years = [2022, 2021, 2020, 2019]
 
-num_pops = 10
+num_pops = 12
 
 for year in years:
     df = pd.read_csv(f"rawdata/{year}/survey_results_public.csv", dtype=str)
@@ -34,6 +34,18 @@ for year in years:
         languages = str(row.LanguageHaveWorkedWith).split(";")
         gender_langs[gender]['language_counter'].update(languages)
         gender_langs[gender]['total'] += 1
+    
+    d_tbl = {
+        "Man": [l[0] for l in gender_langs["Man"]["language_counter"].most_common()],
+        "Woman": [l[0] for l in gender_langs["Woman"]["language_counter"].most_common()],
+        "Other": [l[0] for l in gender_langs["Other"]["language_counter"].most_common()]
+    }
+
+    df_tbl = pd.DataFrame(d_tbl)
+    
+    df_tbl.index += 1
+
+    df_tbl.to_csv(f"data/{year}_table_by_gender.csv", encoding="utf-8")
     
     langs_by_gender = []
     row_names = []
@@ -100,6 +112,6 @@ for year in years:
             )
         )
     
-    fig.show()
+    #fig.show()
     
     fig.write_image(f"images/{year}_most_popular_by_gen.png")
